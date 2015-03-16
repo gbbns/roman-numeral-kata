@@ -32,9 +32,12 @@ function arabicToRoman(num){
 
 
   for (var i = 0; i < numeralArray.length; i++) {
-    console.log(numeralArray[i]);
-  }
+    if (toConvert > 1 && toConvert < 3999){
 
+    } else {
+      return 'Please enter a value between 1 and 3999'
+    }
+  }
 
   return toConvert;
 
