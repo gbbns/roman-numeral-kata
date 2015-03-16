@@ -32,8 +32,9 @@ function arabicToRoman(num){
   // Setup a variable to add numerals to
   var romanDate = '';
 
-  for (var i = 0; i <= numeralArray.length; i++) {
-    if (toConvert >= 1 && toConvert <= 3999){
+  if (toConvert >= 1 && toConvert <= 3999){
+    for (var i = 0; i <= numeralArray.length; i++) {
+
       console.log('Value of i: ' + i);
       console.log('Initial value:' + toConvert);
       console.log('Current array item: ' + numeralArray[i]);
@@ -51,10 +52,10 @@ function arabicToRoman(num){
           // Console log results for testing.
           console.log('Updated number:' + toConvert);
       }
-
-    } else {
-      return 'Please enter a value between 1 and 3999'
     }
+
+  } else {
+    return 'Please enter a value between 1 and 3999'
   }
 
   return toConvert;
