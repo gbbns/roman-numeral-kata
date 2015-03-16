@@ -31,7 +31,7 @@ function arabicToRoman(num){
 
 
 
-  for (var i = 0; i < 9; i++) {
+  for (var i = 0; i < numeralArray.length; i++) {
     console.log(numeralArray[i]);
   }
 
