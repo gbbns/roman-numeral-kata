@@ -22,6 +22,7 @@
 // Rule: Only convert between 1 & 3999
 
 function arabicToRoman(num){
+  var numeralArray = [];
   var toConvert = num;
 
   return toConvert;
