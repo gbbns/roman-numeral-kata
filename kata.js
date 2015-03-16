@@ -32,11 +32,24 @@ function arabicToRoman(num){
   // Setup a variable to add numerals to
   var romanDate = '';
 
-  for (var i = 0; i < numeralArray.length; i++) {
+  for (var i = 0; i <= numeralArray.length; i++) {
     if (toConvert >= 1 && toConvert <= 3999){
+      console.log('Value of i: ' + i);
+      console.log('Initial value:' + toConvert);
+      console.log('Current array item: ' + numeralArray[i]);
+
       if (toConvert >= numeralArray[i]) {
-          romanDate += numeralArray[i];
-          console.log(romanDate);
+          console.log('Array item:' + numeralArray[i + 1]);
+
+          // Add one to array index to get numeral
+          romanDate += numeralArray[i + 1];
+          console.log('Date: ' + romanDate);
+
+          // As per paper workouts, need to remove last pass from original date.
+          toConvert = toConvert - numeralArray[i];
+
+          // Console log results for testing.
+          console.log('Updated number:' + toConvert);
       }
 
     } else {
