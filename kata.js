@@ -22,8 +22,19 @@
 // Rule: Only convert between 1 & 3999
 
 function arabicToRoman(num){
-  var numeralArray = [];
+
+  // Array of roman numerals and corresponding arabic
+  var numeralArray = ['1','I', '5','V', '10','X', '50','L', '100','C', '500','D', '1000','M'];
+
+  // Grab number to convert
   var toConvert = num;
+
+
+
+  for (var i = 0; i < 9; i++) {
+    console.log(numeralArray[i]);
+  }
+
 
   return toConvert;
 
