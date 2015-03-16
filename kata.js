@@ -18,3 +18,14 @@
 // XC : 90
 // CD : 400
 // CM : 900
+
+// Rule: Only convert between 1 & 3999
+
+function arabicToRoman(num){
+  var toConvert = num;
+
+  return toConvert;
+
+}
+
+console.log(arabicToRoman(2015));
