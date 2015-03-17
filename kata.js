@@ -26,12 +26,14 @@ function arabicToRoman(num){
   // Array of roman numerals and corresponding arabic
   //var numeralArray = ['1','I','5','V','10','X','50','L','100','C','500','D','1000','M'];
   var numeralArray = ['1000','M','900','CM','500','D','400','CD','100','C','90','XC','50','L','40','XL','10','X','9','IX','5','V','4','IV','1','I'];
+
   // Grab number to convert
   var toConvert = num;
 
   // Setup a variable to add numerals to
   var romanDate = '';
 
+  // Check year is valid
   if (toConvert >= 1 && toConvert <= 3999){
     for (var i = 0; i <= numeralArray.length; i++) {
 
@@ -39,11 +41,11 @@ function arabicToRoman(num){
       console.log('Initial value:' + toConvert);
       console.log('Current array item: ' + numeralArray[i]);
 
-      if (toConvert >= numeralArray[i]) {
+      while (toConvert >= numeralArray[i]) {
           console.log('Array item:' + numeralArray[i + 1]);
 
           // Add one to array index to get numeral
-          romanDate += numeralArray[i + 1];
+          romanDate = romanDate + numeralArray[i + 1];
           console.log('Date: ' + romanDate);
 
           // As per paper workouts, need to remove last pass from original date.
