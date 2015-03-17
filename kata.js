@@ -35,6 +35,7 @@ function arabicToRoman(num){
 
   // Check year is valid
   if (toConvert >= 1 && toConvert <= 3999){
+
     for (var i = 0; i <= numeralArray.length; i++) {
 
       console.log('Value of i: ' + i);
@@ -45,23 +46,20 @@ function arabicToRoman(num){
           console.log('Array item:' + numeralArray[i + 1]);
 
           // Add one to array index to get numeral
-          romanDate = romanDate + numeralArray[i + 1];
+          romanDate += numeralArray[i + 1];
           console.log('Date: ' + romanDate);
 
           // As per paper workouts, need to remove last pass from original date.
-          toConvert = toConvert - numeralArray[i];
+          toConvert -= numeralArray[i];
 
           // Console log results for testing.
           console.log('Updated number:' + toConvert);
       }
     }
-
   } else {
     return 'Please enter a value between 1 and 3999'
   }
-
   return toConvert;
-
 }
 
 console.log(arabicToRoman(2015));
