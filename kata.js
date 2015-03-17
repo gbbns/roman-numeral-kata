@@ -65,3 +65,5 @@ function arabicToRoman(num){
 }
 
 console.log(arabicToRoman(2015));
+
+console.log(arabicToRoman(1999));
