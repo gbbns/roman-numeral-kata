@@ -2,6 +2,24 @@
 
   "use strict";
 
+  // Setup click event on first form submit button found in document
+  var form = document.querySelector('#FormConvertor');
+
+  // Setup form elements in global scope as will want to reference them
+  var formButton = document.querySelector('#FormSubmit');
+  var formInput = document.querySelector('#toConvert');
+
+  formButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      var formData = formInput.value;
+      var romanNumeral = arabicToRoman(formData);
+      updateForm(romanNumeral);
+  }, false);
+
+  function updateForm(data){
+    form.innerHTML = form.innerHTML + '<p>New date: ' + data +'</p>';
+  }
+
   function arabicToRoman(num){
 
     // Array of roman numerals and corresponding arabic
@@ -42,8 +60,7 @@
     return romanDate;
   }
 
-
-  console.log('2015: ' + arabicToRoman(2015));
-  console.log('1999: ' + arabicToRoman(1999));
+  //arabicToRoman(2015);
+  //arabicToRoman(1999);
 
 })();
