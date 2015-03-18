@@ -3,10 +3,9 @@
   "use strict";
 
   // Setup form elements in global scope as will want to reference them
-  var form = document.querySelector('#FormConvertor');
-
-  var formButton = document.querySelector('#FormSubmit');
-  var formInput = document.querySelector('#toConvert');
+  var form = document.querySelector('#FormConvertor'),
+      formButton = document.querySelector('#FormSubmit'),
+      formInput = document.querySelector('#toConvert');
 
   // Array of roman numerals and corresponding arabic
   var numeralArray = [
