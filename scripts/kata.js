@@ -24,20 +24,11 @@
         { arabic:1, numeral:'I'}
       ];
 
-  // Setup click event on first form submit button found in document
-
-  formButton.addEventListener('click', function(e) {
-      e.preventDefault();
-      var formData = formInput.value;
-      var romanNumeral = arabicToRoman(formData);
-      updateForm(romanNumeral);
-  }, false);
-
   function updateForm(data){
     form.insertAdjacentHTML("beforeend", '<p class="new-date">New date: ' + data +'</p>');
   }
 
-  function arabicToRoman(num){
+  function Convertor(num){
 
     // Grab number to convert
     var toConvert = parseInt(num);
@@ -45,35 +36,50 @@
     // Setup a variable to add numerals to
     var romanDate = '';
 
-    // Check year is valid
-    if (toConvert >= 1 && toConvert <= 3999){
+    this.arabicToRoman = function(){
+      // Check year is valid
+      if (toConvert >= 1 && toConvert <= 3999){
 
-      for (var i = 0; i <= numeralArray.length; i++) {
+        for (var i = 0; i <= numeralArray.length; i++) {
 
-        var numeralArrayItem = numeralArray[i];
+          var numeralArrayItem = numeralArray[i];
 
-        // console.log('Value of i: ' + i);
-        // console.log('Initial value:' + toConvert);
+          // console.log('Value of i: ' + i);
+          // console.log('Initial value:' + toConvert);
 
-        while (toConvert > 0 && toConvert >= numeralArrayItem.arabic) {
-          // console.log('Current array key: ' + numeralArrayItem.arabic);
-          // console.log('Current array value:' + numeralArrayItem.numeral);
+          while (toConvert > 0 && toConvert >= numeralArrayItem.arabic) {
+            // console.log('Current array key: ' + numeralArrayItem.arabic);
+            // console.log('Current array value:' + numeralArrayItem.numeral);
 
-          romanDate += numeralArrayItem.numeral;
-          // console.log('Date: ' + romanDate);
+            romanDate += numeralArrayItem.numeral;
+            // console.log('Date: ' + romanDate);
 
-          // As per paper workouts, need to remove last pass from original date.
-          toConvert -= numeralArrayItem.arabic;
+            // As per paper workouts, need to remove last pass from original date.
+            toConvert -= numeralArrayItem.arabic;
 
-          // Console log results for testing.
-          // console.log('Updated number:' + toConvert);
+            // Console log results for testing.
+            // console.log('Updated number:' + toConvert);
+          }
         }
-      }
-      return romanDate;
+        return romanDate;
 
-    } else {
-      return 'Please enter a value between 1 and 3999'
+      } else {
+        return 'Please enter a value between 1 and 3999'
+      }
+    }
+
+    this.romanToArabic = function(){
+      // Code in here for conversion from Roman numerals to Arabic;
     }
   }
+
+  // Setup click event on first form submit button found in document
+
+  formButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      var formData = formInput.value;
+      var romanNumeral = new Convertor(formData).arabicToRoman();
+      updateForm(romanNumeral);
+  }, false);
 
 })();
